@@ -1,0 +1,12 @@
+<div>
+    <h1>My Workout History</h1>
+</div>
+
+<div>
+{{#each workoutHistory as |workout|}}
+
+<h1>{{workout.date}}</h1>
+<p>{{workout.id}}</p>
+
+{{/each}}
+</div>

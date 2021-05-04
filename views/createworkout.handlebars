@@ -1,0 +1,159 @@
+<div class='container '>
+
+    <div id="pdf">
+        <h2>Create Workout</h2>
+        <form>
+            <div class="form-group w-50">
+                <label for="exampleFormControlTextarea1">Title</label>
+                <textarea class="form-control" id="workout-title" rows="3"></textarea>
+            </div>
+            <div class="form-group w-75">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control" id="workout-description" rows="3"></textarea>
+            </div>
+            <div class="form-group w-75">
+                <label for="exampleFormControlTextarea1">Rating (Between 1 and 10)</label>
+                <input type="number" id="workout-rating" min="0" max="10" data-bind="value:replyNumber" />
+
+            </div>
+            {{!-- <div select="workout-type"> --}}
+                {{!-- <label for="exampleFormControlTextarea1">Workout Type</label> --}}
+                {{!-- <div class="dropdown" id="workout-type">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Workout Type
+                    </button> --}}
+                    <select name="workout-type" id="workout-type">
+                        <option selected>Workout Type </option>
+                        <option value="Strength Training">Strength Training</option>
+                        <option value="Cardio">Cardio</option>
+                        <option value="High Intensity Interval Training (HIIT)">High Intensity Interval Training (HIIT)
+                        </option>
+                        <option value="Yoga">Yoga</option>
+                    </select>
+                    {{!--
+                </div> --}}
+                {{!-- </div> --}}
+            <p id="selected-dropdown"> </p>
+
+            {{!-- <div class="form-group w-75">
+                <div>
+                    <label for="exampleFormControlTextarea1">Body Zone</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="back" value="Back" />
+                    <label class="form-check-label" for="inlineCheckbox1">Back</label>
+                    <option value="Back"></option>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="legs" value="Legs" />
+                    <label class="form-check-label" for="inlineCheckbox2">Legs</label>
+                    <option value="Legs"></option>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="core" value="Core" />
+                    <label class="form-check-label" for="inlineCheckbox2">Core</label>
+                    <option value="Core"></option>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="full-body" value="Full Body" />
+                    <label class="form-check-label" for="inlineCheckbox2">Full Body</label>
+                    <option value="Full Body"></option>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="arms" value="Arms" />
+                    <label class="form-check-label" for="inlineCheckbox2">Arms</label>
+                    <option value="Arms"></option>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="chest" value="Chest" />
+                    <label class="form-check-label" for="inlineCheckbox2">Chest</label>
+                    <option value="Chest"></option>
+                </div> --}}
+                <form action="/action_page.php">
+                    <label for="cars">Choose a muscle group:</label>
+                    <select class="styledropdown" name="cars" id="body-zone" multiple>
+                        <option value="Back">Back</option>
+                        <option value="Legs">Legs</option>
+                        <option value="Full Body">Full Body</option>
+                        <option value="Arms">Arms</option>
+                        <option value="Chest">Chest</option>
+                    </select>
+
+                    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+                </form>
+
+
+
+            </div>
+
+            <div class="form-group w-75">
+                <label for="exampleFormControlTextarea1">Duration (In Minutes)</label>
+                <input type="number" id="workout-duration" min="0" max="300" data-bind="value:replyNumber" />
+
+            </div>
+
+    </div>
+    {{!-- <div class="form-group w-75">
+        <label for="exampleFormControlTextarea1">Owner ID</label>
+        <textarea class="form-control" id="owner-id" rows="3"></textarea>
+    </div> --}}
+
+    <div class="createworkoutbuttons" >
+        <button type="button" class="btn btn-light" id="submit-button">Submit</button>
+        <button type="button" class="btn btn-light" id="pdf-print">PDF</button>
+
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <!-- Below script will print div with id pdf to a pdf file using jspdf -->
+
+    {{!-- workout-title --}}
+    {{!-- workout-description --}}
+    {{!-- ocument.getElementById("workout-title"); --}}
+    {{!-- const description = document.getElementById("workout-description"); --}}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#pdf-print').click(function () {
+                var title = $.trim($("#workout-title").val());
+                var description = $.trim($("#workout-description").val());
+                var rating = $.trim($("#workout-rating").val());
+                var type = $.trim($("#workout-type").val());
+                var zone = $.trim($("#body-zone").val());
+                var duration = $.trim($("#workout-duration").val());
+
+                var doc = new jsPDF();
+                doc.setFont("helvetica");
+                doc.setFontType("bold");
+                doc.text("TITLE", 10, 10)
+                doc.text(title, 10, 20)
+                doc.text("DESCRIPTION", 10, 30)
+                doc.text(description, 10, 40)
+                doc.text("RATING (OUT OF TEN))", 10, 50)
+                doc.text(rating + "/10", 10, 60)
+                doc.text("WORKOUT TYPE", 10, 70)
+                doc.text(type, 10, 80)
+                doc.text("ZONE", 10, 90)
+                doc.text(zone, 10, 100)
+                doc.text("DURATION:", 10, 110)
+                doc.text(duration + ' MINUTES', 10, 120)
+
+
+
+                doc.save(title + '.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+
+
+
+
+            })
+
+
+        });
+    </script>
+    <script src="./js/createworkout.js"></script>
+</div>

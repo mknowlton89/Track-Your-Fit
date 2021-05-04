@@ -1,0 +1,14 @@
+<div class="my-workouts-main">
+    <div class="my-workouts-headline">
+        <h1>My Workouts</h1>
+    </div>
+    {{#each workouts as |workout|}}
+    <div class="my-workout-card">
+        <a  class="workout-title" href="/api/workouts/{{workout.id}}">{{workout.title}}</a>
+        <p>{{workout.description}}</p>
+        <p>{{workout.rating}}</p>
+        <p>{{workout.body_zone}}</p>
+        <p>{{workout.duration}}</p>
+    </div>
+    {{/each}}
+</div>

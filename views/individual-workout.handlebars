@@ -1,0 +1,112 @@
+
+
+<br>
+<br>
+<div class="col-md-6 my-workout-card">
+    <h2 style="color: #626262">WORKOUT OVERVIEW</h2>
+    <hr>
+
+    <br>
+    <input type="hidden" id="workout-id" value={{id}}>
+    <div  class="form my-workout-form">
+      <div class="form-group">
+        <label style="font-size: 25px;text-decoration:underline" class="workout-title" for="workout-title">{{title}}</label>
+      </div>
+      
+     
+      <div class="form-group">
+        <label style="text-decoration: underline;color:gray" for="workout-description">Description:</label>
+        <br>
+        <span class="workout-description">{{description}}</span>
+      </div>
+
+    <div class="form-group">
+        <label style="text-decoration: underline;color:gray" for="workout-rating">Rating:</label>
+        <br>
+        <span class="workout-rating">{{rating}}</span>
+      </div>
+
+       <div class="form-group">
+        <label style="text-decoration: underline;color:gray" for="workout-type">Workout Type:</label>
+        <br>
+        <span class="workout-type">{{workout_type}}</span>
+      </div>
+
+       <div class="form-group">
+        <label style="text-decoration: underline;color:gray" for="workout-zone">Body Zone:</label>
+        <br>
+        <span class="workout-zone">{{body_zone}}</span>
+      </div>
+
+      <div class="form-group">
+        <label style="text-decoration: underline;color:gray" for="workout-duration">Duration:</label>
+        <br>
+        <span class="workout-duration">{{duration}}</span>
+      </div>
+      <hr>
+
+    <button class="individualbtn btn" style="background-color: greenyellow;"  onclick="window.location.href='/api/users/workouts/'">Back</button>
+    
+    <br>
+    <br>
+    <button style="border-color: red;" type="button" class="btn individualbtn btn-light" id="delete-btn">Delete</button>
+    <br>
+    <br>
+    <button style="border-color: blue;" type="button" class="btn individualbtn btn-light" id="pdf-print">PDF</button>
+
+        
+    </div>
+  </div>
+
+
+{{!-- pdf below --}}
+
+ 
+  {{!-- <script src="https://code.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+   <script type="text/javascript">
+        $(document).ready(function () {
+            $('#pdf-print').click(
+              function () {
+                var title = $.trim($(".workout-title").text());
+                var description = $.trim($(".workout-description").text());
+                var rating = $.trim($(".workout-rating").text());
+                var type = $.trim($(".workout-type").text());
+                var zone = $.trim($(".workout-zone").text());
+                var duration = $.trim($(".workout-duration").text());
+
+                var doc = new jsPDF();
+                doc.setFont("helvetica");
+                doc.setFontType("bold");
+                doc.text("TITLE", 10, 10)
+                doc.text(title, 10, 20)
+                doc.text("DESCRIPTION", 10, 30)
+                doc.text(description, 10, 40)
+                doc.text("RATING (OUT OF TEN))", 10, 50)
+                doc.text(rating + "/10", 10, 60)
+                doc.text("WORKOUT TYPE", 10, 70)
+                doc.text(type, 10, 80)
+                doc.text("ZONE", 10, 90)
+                doc.text(zone, 10, 100)
+                doc.text("DURATION:", 10, 110)
+                doc.text(duration + ' MINUTES', 10, 120)
+
+              
+
+
+                doc.save(title + '.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+
+
+
+
+            })
+
+
+        });
+
+    </script>
+    <script src="/js/workout.js"></script>
+
+  
