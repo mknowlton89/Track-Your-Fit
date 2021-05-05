@@ -3,7 +3,6 @@
   font-family: "Clash Display", sans-serif;
   margin: 0px;
   overflow-x: hidden;
-  color: white;
 }
 
 a {
@@ -12,8 +11,6 @@ a {
 
 main {
   display: flex;
-  background-color: #110F10;
-  padding: 20px;
 }
 
 #top-nav {
@@ -23,14 +20,19 @@ main {
 #side-nav {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  background-color: #100F10;
+  color: white;
+  padding: 20px;
+  width: 19%;
   /* align-items: center; */
-  height: 100vh;
+  height: 95vh;
+  color: white;
   /* padding-left: 20px; */
 }
 
 #side-nav-logo {
-  padding: 0px 0px 127px 0px;
+  text-align: center;
+  padding-bottom: 55px;
 }
 
 #side-nav-links {
@@ -40,8 +42,9 @@ main {
 }
 
 #page-content {
-  width: 75%;
+  width: 81%;
   background-color: white;
+  padding: 20px;
 }
 
 /* .navcontainer {
@@ -54,11 +57,10 @@ main {
   width: 160px;
   /* color: black; */
   /* text-align: center; */
-  margin-bottom: 15px;
-  margin-top: 15px;
   font-size: 18px;
   border-radius: 16px;
-  padding: 13px;
+  padding: 20px;
+  color: white;
 }
 
 .navbtn:hover {
