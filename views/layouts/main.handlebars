@@ -17,26 +17,32 @@
     <h1>Track Your Fit</h1>
   </div> --}}
   <main>
+    
     <div id="side-nav">
       <div id="side-nav-logo">
             <h1>Track Your Fit</h1>
+            {{#unless loggedIn}}
+            <p>Your online accountability partner</p>
+            {{/unless}}
       </div>
       <div id="side-nav-links">
+        {{#if loggedIn}}
             <!-- Conditionally rendering login or logout links -->
-            {{#if loggedIn}}
             <a class="navbtn" href="/">Home</a>
             <a class="navbtn" href="/api/users/workouts">My Workouts</a>
             <a class="navbtn" href="/createworkout">Create a Workout</a>
             <a class="navbtn" href="/allworkouts">Browse Workouts</a>
             <a class="navbtn" id="logout" href="/">Logout</a>
-            {{else}}
-            <a class="navbtn" href="/login">Login</a>
             {{/if}}
       </div>
     </div>
+    
     <div id="page-content">
         {{{body}}}
     </div>
   </main>
+  {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>

@@ -76,9 +76,9 @@ main {
 }
 
 .login-signup-container {
-  position: relative;
-  margin-top: 200px;
+  margin-top: 10%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -87,6 +87,24 @@ main {
   background-color: greenyellow;
   padding: 25px;
   border-radius: 30px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.signup-title {
+  font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.login-form {
+  padding-bottom: 20px;
 }
 
 .my-workout-card {
