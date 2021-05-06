@@ -1,22 +1,31 @@
-<div class='container '>
-
-    <div id="pdf">
+<div class='create-workout-container'>
+    <div class="vertically-align-container">
         <h2>Create Workout</h2>
-        <form>
-            <div class="form-group w-50">
-                <label for="exampleFormControlTextarea1">Title</label>
-                <input type="text" class="form-control" id="workout-title"></input>
+            <div class="form-container">
+        {{!-- <div class="progress-bar" style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div> --}}
+        <form id="form1" class="form-transition">
+            <div page="1">
+                <div id="workout-title-container">
+                    <h2>Enter the title of your workout</h2>
+                    <input type="text" class="form-control" id="workout-title" required></input>
+                </div>
+                <div id="form1-btn">
+                    <button id="next1">Next</button>
+                </div>
             </div>
-            <div class="form-group w-75">
-                <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control" id="workout-description" rows="3"></textarea>
-            </div>
-            <div class="form-group w-75">
-                <label for="exampleFormControlTextarea1">Rating (Between 1 and 10)</label>
-                <input type="number" id="workout-rating" min="0" max="10" data-bind="value:replyNumber" />
+        </form>
 
-            </div>
-                    <select name="workout-type" id="workout-type">
+    
+        <form id="form2" class="form-transition">
+            <div page="2">
+                <div id="workout-type-container">
+                    <h2>What type of workout is this?</h2>
+                    <select id="workout-type">
                         <option selected>Workout Type </option>
                         <option value="Strength Training">Strength Training</option>
                         <option value="Cardio">Cardio</option>
@@ -24,27 +33,50 @@
                         </option>
                         <option value="Yoga">Yoga</option>
                     </select>
-            <p id="selected-dropdown"> </p>
-                <form action="/action_page.php">
-                    <label for="cars">Choose a muscle group:</label>
-                    <select class="styledropdown" name="cars" id="body-zone" multiple>
+                </div>
+                <div id="form2-btn-container">
+                    <button class="btn-secondary" id="back1">Back</button>
+                    <button id="next2">Next</button>
+                </div>
+            </div>
+        </form>
+
+        {{!-- <form id="form3">
+            <div page="3">
+                <div id="body-zone-container">
+                    <h2>Choose a muscle group:</h2>
+                    <select id="body-zone" multiple>
                         <option value="Back">Back</option>
                         <option value="Legs">Legs</option>
                         <option value="Full Body">Full Body</option>
                         <option value="Arms">Arms</option>
                         <option value="Chest">Chest</option>
                     </select>
-                    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
-                </form>
+                </div>
+                <div>
+                    <button id="back2">Back</button>
+                    <button id="next3">Next</button>
+                </div>
             </div>
-            <div class="form-group w-75">
-                <label for="exampleFormControlTextarea1">Duration (In Minutes)</label>
-                <input type="number" id="workout-duration" min="0" max="300" data-bind="value:replyNumber" />
+        </form> --}}
+
+        {{!-- <form id="form4">
+            <div page="4">
+                <div id="workout-description-container">
+                    <h2>Please enter a description of your workout:</h2>
+                    <textarea class="form-control" id="workout-description" rows="3"></textarea>
+                </div>
+                <div>
+                    <button id="back3">Back</button>
+                    <button id="submit">Submit</button>
+                </div>
             </div>
-    </div>
-    <div class="createworkoutbuttons" >
-        <button type="button" class="btn btn-light" id="submit-button">Submit</button>
-    </div>
+        </form> --}}
+
+
+        </div> 
+    </div> 
+</div>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="./js/createworkout.js"></script>
