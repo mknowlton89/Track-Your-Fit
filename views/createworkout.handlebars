@@ -1,14 +1,8 @@
 <div class='create-workout-container'>
-    <div class="vertically-align-container">
+    
         <h2>Create Workout</h2>
-            <div class="form-container">
-        {{!-- <div class="progress-bar" style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-        </div> --}}
-        <form id="form1" class="form-transition">
+        
+        <form id="form1" class="form-transition form">
             <div page="1">
                 <div id="workout-title-container">
                     <h2>Enter the title of your workout</h2>
@@ -20,8 +14,7 @@
             </div>
         </form>
 
-    
-        <form id="form2" class="form-transition">
+        <form id="form2" class="form-transition form hidden">
             <div page="2">
                 <div id="workout-type-container">
                     <h2>What type of workout is this?</h2>
@@ -41,7 +34,7 @@
             </div>
         </form>
 
-        {{!-- <form id="form3">
+        <form id="form3" class="form-transition form hidden">
             <div page="3">
                 <div id="body-zone-container">
                     <h2>Choose a muscle group:</h2>
@@ -58,7 +51,7 @@
                     <button id="next3">Next</button>
                 </div>
             </div>
-        </form> --}}
+        </form>
 
         {{!-- <form id="form4">
             <div page="4">
@@ -74,8 +67,8 @@
         </form> --}}
 
 
-        </div> 
-    </div> 
+        
+ 
 </div>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

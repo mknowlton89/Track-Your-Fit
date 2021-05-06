@@ -14,11 +14,15 @@ const form2 = document.getElementById('form2');
 const next2Btn = document.getElementById('next2');
 const back1Btn = document.getElementById('back1');
 
+const form3 = document.getElementById('form3');
+const next3Btn = document.getElementById('next3');
+const back2Btn = document.getElementById('back2');
+
 
 next1Btn.addEventListener('click', (e) => {
     e.preventDefault();
-    form1.style.transform = "translateX(-500px)";
-    form2.style.transform = "translateX(-231px)";
+    form1.classList.toggle("hidden");
+    form2.classList.toggle("hidden");
 });
 
 back1Btn.addEventListener('click', (e) => {
@@ -26,6 +30,22 @@ back1Btn.addEventListener('click', (e) => {
     form1.style.transform = "translateX(237px)";
     form2.style.transform = "translateX(500px)";
 });
+
+
+
+next2Btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    form2.style.transform = "translateX(-500px)";
+    form3.style.transform = "translateX(-231px)";
+});
+
+back2Btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    form2.style.transform = "translateX(237px)";
+    form3.style.transform = "translateX(500px)";
+});
+
+
 
 
 
